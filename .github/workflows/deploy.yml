@@ -124,11 +124,11 @@ jobs:
         hashes="$hashes, $(addHash "freebsd-x64.tar.gz" "freebsd" "x64" "archive")"
         
         hashes="$hashes ]"
+        echo "Skipping publishing update for fork build"
+        # json="{\""branch\"":\""$branch\"", \""version\"":\""$version\"", \""lastCommit\"":\""$lastCommit\"", \""hashes\"":$hashes, \""gitHubRelease\"":true}"
+        # url="https://services.sonarr.tv/v1/update"
         
-        json="{\""branch\"":\""$branch\"", \""version\"":\""$version\"", \""lastCommit\"":\""$lastCommit\"", \""hashes\"":$hashes, \""gitHubRelease\"":true}"
-        url="https://services.sonarr.tv/v1/update"
+        # echo "Publishing update $version ($branch) to: $url"
+        # echo "$json"
         
-        echo "Publishing update $version ($branch) to: $url"
-        echo "$json"
-        
-        curl -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.SERVICES_API_KEY }}" -X POST -d "$json" --fail-with-body $url
+        # curl -H "Content-Type: application/json" -H "X-Api-Key: ${{ secrets.SERVICES_API_KEY }}" -X POST -d "$json" --fail-with-body $url
